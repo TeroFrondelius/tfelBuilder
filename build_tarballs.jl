@@ -14,8 +14,7 @@ sources = [
 
 # Bash recipe for building across all platforms
 script = raw"""
-cd $WORKSPACE/srcdir
-cd tfel/
+cd $WORKSPACE/srcdir/tfel/
 apk add gnuplot
 cmake -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain
 make
@@ -27,7 +26,13 @@ make install
 # platforms are passed in on the command line
 platforms = [
     Linux(:x86_64, libc=:glibc),
-    Windows(:x86_64)
+    Windows(:x86_64),
+    Linux(:aarch64, libc=:glibc),
+    Linux(:i686, libc=:glibc),
+    Linux(:armv7l, libc=:glibc, call_abi=:eabihf),
+    Linux(:powerpc64le, libc=:glibc),
+    Linux(:i686, libc=:musl),
+    Linux(:x86_64, libc=:musl)
 ]
 
 # The products that we will ensure are always built
