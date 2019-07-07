@@ -2,7 +2,7 @@
 # `julia build_tarballs.jl --help` to see a usage message.
 using BinaryBuilder
 
-name = "tfel"
+name = "tfel_binaries"
 version = v"3.2.1-master"
 
 # Collection of sources required to build tfelBuilder
@@ -28,8 +28,8 @@ platforms = [
     Linux(:x86_64, libc=:glibc),
     Windows(:x86_64),
     Linux(:aarch64, libc=:glibc),
-    Linux(:i686, libc=:glibc),
-    MacOS()
+    Linux(:i686, libc=:glibc)
+    # MacOS()
     # Linux(:armv7l, libc=:glibc, call_abi=:eabihf),
     # Linux(:powerpc64le, libc=:glibc),
     # Linux(:i686, libc=:musl),
