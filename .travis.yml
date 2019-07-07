@@ -1,0 +1,39 @@
+language: julia
+os:
+  - linux
+julia:
+  - 1.0
+notifications:
+  email: false
+git:
+  depth: 99999999
+cache:
+  timeout: 1000
+  directories:
+    - downloads
+env:
+  global:
+    - BINARYBUILDER_DOWNLOADS_CACHE=downloads
+    - BINARYBUILDER_AUTOMATIC_APPLE=false
+sudo: required
+
+# Before anything else, get the latest versions of things
+before_script:
+  - julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder#master"; Pkg.build()'
+
+script:
+  - julia build_tarballs.jl
+
+
+deploy:
+    provider: releases
+    api_key:
+        # Note; this api_key is only valid for TeroFrondelius/tfelBuilder; you need
+        # to make your own: https://docs.travis-ci.com/user/deployment/releases/
+        secure: ZUmG7+iuuoA5CmFI6iUE+fZHwERh2H4A6HytPgSTBAWC3OYZRCiBbVpGd+7JdOw4S4hUcx9sSWEchrdn5/J4839rQf8MlDbJezfW/mv+dD/SDuHu26jkhf0A/vjPbTjtUqA3DGSBHcnQUImxZDUF6cPZPxi+1lDblY4JBDEaS4enozp1tzvyJYc2t/b29tGaP1DtDs3Z4DcXyKotrDa4uORGtGb9nZ9xLA3GiqU7N5GRlW9DFrjjnS15KT8L9YgBiomzZgtO+g8QvmXoXwmOEBeNcfBMlA2rr1woknZAFplCQR0vA/H0iJJwavpm34oFgvXuIwyt8wQRFRwrluUDTYpiCDz/1cv7gqgYtnoJ4FQc2kHbaGpK7Fb7443qIjkHYlU0zJFAxTWI/uBxa1CYi6NVJkzT17oIdHDU10fd0MCo5cnI7whUmkeHd/XrF8tQWHnaFs5/jhHQgnEgaH6GEyAEFveTxApuI2ppKZRo5vivcRFSBqsGfOnKx0Ym3yLUUflSHo3x4uM5iN11MGsQZNuD8iyrgfd+Iw9HkW2MSaCxMa/emJk+Y3A+M7i7uQdi2rwG+tGxAKZslHLZ4acfHIlo9CBP5RBVbDKn2AM5KJCcB6jzN3HRZ7bjIxQ0eZvypqN1vTzveieUpH4idKaHNK9mMbWKpwTn9zIh7/0rfpY=
+    file_glob: true
+    file: products/*
+    skip_cleanup: true
+    on:
+        repo: TeroFrondelius/tfelBuilder
+        tags: true
