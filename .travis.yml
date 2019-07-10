@@ -8,21 +8,31 @@ notifications:
 git:
   depth: 99999999
 cache:
-  timeout: 1000
+  timeout: 3600
   directories:
     - downloads
 env:
   global:
     - BINARYBUILDER_DOWNLOADS_CACHE=downloads
     - BINARYBUILDER_AUTOMATIC_APPLE=true
+  matrix:
+    - PART=1/5
+    - PART=2/5
+    - PART=3/5
+    - PART=4/5
+    - PART=5/5
 sudo: required
-
+jobs:
+  include:
+    - stage: regenerate build.jl
+      script: julia build_tarballs.jl --only-buildjl
+      if: tag IS present
 # Before anything else, get the latest versions of things
 before_script:
   - julia -e 'using Pkg; pkg"add BinaryProvider"; pkg"add BinaryBuilder#master"; Pkg.build()'
 
 script:
-  - julia build_tarballs.jl
+  - julia build_tarballs.jl --part=$PART
 
 
 deploy:

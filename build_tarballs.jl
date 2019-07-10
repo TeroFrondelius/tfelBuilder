@@ -14,9 +14,14 @@ sources = [
 
 # Bash recipe for building across all platforms
 script = raw"""
+export COMMON_FLAGS=\
+"-DCMAKE_INSTALL_PREFIX=$prefix "\
+"-DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain "\
+"-Denable-portable-build=ON "
+
 cd $WORKSPACE/srcdir/tfel/
 apk add gnuplot
-cmake -DCMAKE_INSTALL_PREFIX=$prefix -DCMAKE_TOOLCHAIN_FILE=/opt/$target/$target.toolchain -Denable-portable-build=ON
+cmake $COMMON_FLAGS
 make
 make install
 
@@ -25,15 +30,19 @@ make install
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-    Linux(:x86_64, libc=:glibc),
-    Windows(:x86_64),
-    Linux(:aarch64, libc=:glibc),
     Linux(:i686, libc=:glibc)
-    # MacOS()
-    # Linux(:armv7l, libc=:glibc, call_abi=:eabihf),
-    # Linux(:powerpc64le, libc=:glibc),
-    # Linux(:i686, libc=:musl),
-    # Linux(:x86_64, libc=:musl)
+    Linux(:x86_64, libc=:glibc)
+    Linux(:aarch64, libc=:glibc)
+    Linux(:armv7l, libc=:glibc, call_abi=:eabihf)
+    Linux(:powerpc64le, libc=:glibc)
+    Linux(:i686, libc=:musl)
+    Linux(:x86_64, libc=:musl)
+    Linux(:aarch64, libc=:musl)
+    Linux(:armv7l, libc=:musl, call_abi=:eabihf)
+    Windows(:i686)
+    Windows(:x86_64)
+    # MacOS(:x86_64)                               
+    # FreeBSD(:x86_64)
 ]
 
 # The products that we will ensure are always built
