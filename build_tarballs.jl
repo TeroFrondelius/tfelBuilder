@@ -8,7 +8,7 @@ version = v"3.2.1-master"
 # Collection of sources required to build tfelBuilder
 sources = [
     "https://github.com/thelfer/tfel.git" =>
-    "c31d590f55508e4ab5fb3e22e898a2cb5af2a97a",
+    "21e7b4e970f156fa325e25fd8fc79993ef179989",
 
 ]
 
@@ -39,9 +39,9 @@ platforms = [
     Linux(:x86_64, libc=:musl)
     Linux(:aarch64, libc=:musl)
     Linux(:armv7l, libc=:musl, call_abi=:eabihf)
-    Windows(:i686)
-    Windows(:x86_64)
-    # MacOS(:x86_64)                               
+    # Windows(:i686)
+    # Windows(:x86_64)
+    # MacOS(:x86_64)
     # FreeBSD(:x86_64)
 ]
 
