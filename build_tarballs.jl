@@ -39,10 +39,10 @@ platforms = [
     Linux(:x86_64, libc=:musl)
     Linux(:aarch64, libc=:musl)
     Linux(:armv7l, libc=:musl, call_abi=:eabihf)
-    Windows(:i686)
+    # Windows(:i686)
     Windows(:x86_64)
     MacOS(:x86_64)
-    FreeBSD(:x86_64)
+    # FreeBSD(:x86_64)
 ]
 
 # The products that we will ensure are always built
