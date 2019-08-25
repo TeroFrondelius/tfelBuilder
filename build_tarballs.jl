@@ -8,7 +8,7 @@ version = v"3.3-dev"
 # Collection of sources required to build tfelBuilder
 sources = [
     "https://github.com/thelfer/tfel.git" =>
-    "37b2a145217cd79e4d1060306e0c81c2887d51e4",
+    "21e7b4e970f156fa325e25fd8fc79993ef179989",
 
 ]
 
