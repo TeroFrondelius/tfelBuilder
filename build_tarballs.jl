@@ -3,12 +3,12 @@
 using BinaryBuilder
 
 name = "tfel_binaries"
-version = v"3.2.1-master"
+version = v"3.3-dev"
 
 # Collection of sources required to build tfelBuilder
 sources = [
     "https://github.com/thelfer/tfel.git" =>
-    "8f0f33feb09584813758e20d5319ed342cd33619",
+    "37b2a145217cd79e4d1060306e0c81c2887d51e4",
 
 ]
 
@@ -52,7 +52,7 @@ products(prefix) = [
     ExecutableProduct(prefix, "tfel-config", Symbol("tfel-config")),
     LibraryProduct(prefix, "libMFrontLogStream", :libMFrontLogStream),
     LibraryProduct(prefix, "libTFELTests", :libTFELTests),
-    ExecutableProduct(prefix, "tfel-doc", Symbol("tfel-doc")),
+    # ExecutableProduct(prefix, "tfel-doc", Symbol("tfel-doc")),
     ExecutableProduct(prefix, "mfront-doc", Symbol("mfront-doc")),
     LibraryProduct(prefix, "libTFELMathKriging", :libTFELMathKriging),
     LibraryProduct(prefix, "libTFELGlossary", :libTFELGlossary),
@@ -65,7 +65,7 @@ products(prefix) = [
     LibraryProduct(prefix, "libTFELMathCubicSpline", :libTFELMathCubicSpline),
     LibraryProduct(prefix, "libTFELMaterial", :libTFELMaterial),
     LibraryProduct(prefix, "libTFELNUMODIS", :libTFELNUMODIS),
-    ExecutableProduct(prefix, "tfel-check", Symbol("tfel-check")),
+    # ExecutableProduct(prefix, "tfel-check", Symbol("tfel-check")),
     LibraryProduct(prefix, "libTFELSystem", :libTFELSystem),
     ExecutableProduct(prefix, "mfront-query", Symbol("mfront-query")),
     ExecutableProduct(prefix, "mtest", :mtest),
