@@ -47,17 +47,14 @@ platforms = [
 
 # The products that we will ensure are always built
 products(prefix) = [
-    ExecutableProduct(prefix, "mfront", :mfront),
+    ExecutableProduct(prefix, "mfront", :mfront), 
     LibraryProduct(prefix, "libMTestFileGenerator", :libMTestFileGenerator),
     ExecutableProduct(prefix, "tfel-config", Symbol("tfel-config")),
     LibraryProduct(prefix, "libMFrontLogStream", :libMFrontLogStream),
-    LibraryProduct(prefix, "libTFELTests", :libTFELTests),
-    ExecutableProduct(prefix, "mfront-doc", Symbol("mfront-doc")),
     LibraryProduct(prefix, "libTFELMathKriging", :libTFELMathKriging),
     LibraryProduct(prefix, "libTFELGlossary", :libTFELGlossary),
     LibraryProduct(prefix, "libTFELConfig", :libTFELConfig),
     LibraryProduct(prefix, "libTFELMath", :libTFELMath),
-    LibraryProduct(prefix, "libTFELMTest", :libTFELMTest),
     LibraryProduct(prefix, "libTFELMathParser", :libTFELMathParser),
     LibraryProduct(prefix, "libTFELUtilities", :libTFELUtilities),
     LibraryProduct(prefix, "libMFrontProfiling", :libMFrontProfiling),
@@ -65,12 +62,9 @@ products(prefix) = [
     LibraryProduct(prefix, "libTFELMaterial", :libTFELMaterial),
     LibraryProduct(prefix, "libTFELNUMODIS", :libTFELNUMODIS),
     LibraryProduct(prefix, "libTFELSystem", :libTFELSystem),
-    ExecutableProduct(prefix, "mfront-query", Symbol("mfront-query")),
-    ExecutableProduct(prefix, "mtest", :mtest),
     LibraryProduct(prefix, "libTFELPhysicalConstants", :libTFELPhysicalConstants),
     LibraryProduct(prefix, "libTFELException", :libTFELException),
     LibraryProduct(prefix, "libTFELMFront", :libTFELMFront),
-    ExecutableProduct(prefix, "mfm", :mfm)
 ]
 
 # Dependencies that must be installed before this package can be built
