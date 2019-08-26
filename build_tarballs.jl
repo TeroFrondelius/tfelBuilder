@@ -64,7 +64,7 @@ products(prefix) = [
     LibraryProduct(prefix, "libTFELSystem", :libTFELSystem),
     LibraryProduct(prefix, "libTFELPhysicalConstants", :libTFELPhysicalConstants),
     LibraryProduct(prefix, "libTFELException", :libTFELException),
-    LibraryProduct(prefix, "libTFELMFront", :libTFELMFront),
+    LibraryProduct(prefix, "libTFELMFront", :libTFELMFront)
 ]
 
 # Dependencies that must be installed before this package can be built
