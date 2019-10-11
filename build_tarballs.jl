@@ -47,9 +47,9 @@ platforms = [
 
 # The products that we will ensure are always built
 products(prefix) = [
-    ExecutableProduct(prefix, "mfront", :mfront), 
-    LibraryProduct(prefix, "libMTestFileGenerator", :libMTestFileGenerator),
-    ExecutableProduct(prefix, "tfel-config", Symbol("tfel-config")),
+    # ExecutableProduct(prefix, "mfront", :mfront),
+    # LibraryProduct(prefix, "libMTestFileGenerator", :libMTestFileGenerator),
+    # ExecutableProduct(prefix, "tfel-config", Symbol("tfel-config")),
     LibraryProduct(prefix, "libMFrontLogStream", :libMFrontLogStream),
     LibraryProduct(prefix, "libTFELMathKriging", :libTFELMathKriging),
     LibraryProduct(prefix, "libTFELGlossary", :libTFELGlossary),
